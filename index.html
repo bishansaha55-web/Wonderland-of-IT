@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderland of IT</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Body Styling - Full screen with IT industry background */
+        body {
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+            min-height: 100vh;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Main container - semi-transparent dark box */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            border: 1px solid rgba(74, 144, 226, 0.5);
+            backdrop-filter: blur(3px);
+        }
+        
+        /* Logo/Header */
+        .logo {
+            margin-bottom: 50px;
+        }
+        
+        .logo h1 {
+            color: #4a90e2;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+        
+        .logo p {
+            color: #ddd;
+            font-size: 1.4rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Search Box */
+        .search-box {
+            display: flex;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+        }
+        
+        .search-box button {
+            padding: 20px 35px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: #357abd;
+            transform: scale(1.02);
+        }
+        
+        /* Filter Section */
+        .filter-section {
+            margin-top: 40px;
+        }
+        
+        .filter-section select {
+            padding: 18px 30px;
+            border-radius: 8px;
+            border: 2px solid #4a90e2;
+            background-color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+            color: #333;
+            transition: all 0.3s;
+        }
+        
+        .filter-section select:hover {
+            border-color: #357abd;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+            
+            .logo h1 {
+                font-size: 2.8rem;
+            }
+            
+            .logo p {
+                font-size: 1.2rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-box input {
+                border-radius: 8px;
+                margin-bottom: 10px;
+                padding: 18px;
+            }
+            
+            .search-box button {
+                border-radius: 8px;
+                padding: 18px;
+            }
+            
+            .filter-section select {
+                padding: 16px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Wonderland of IT</h1>
+            <p>Your gateway to IT opportunities worldwide</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for a country...">
+            <button onclick="searchCountry()">Search</button>
+        </div>
+        
+        <div class="filter-section">
+            <select id="countrySelect" onchange="goToCountry()">
+                <option value="">-- Or select a country --</option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="usa">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+            </select>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Wonderland of IT. All rights reserved.</p>
+            <p>Designed for beginners to explore IT opportunities worldwide</p>
+        </footer>
+    </div>
+    
+    <script>
+        function searchCountry() {
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+            
+            if (!searchTerm) {
+                alert('Please enter a country name to search');
+                return;
+            }
+            
+            // Map search terms to country pages
+            const countryMap = {
+                'bangladesh': 'bangladesh.html',
+                'bd': 'bangladesh.html',
+                'bangla': 'bangladesh.html',
+                'usa': 'usa.html',
+                'united states': 'usa.html',
+                'america': 'usa.html',
+                'us': 'usa.html',
+                'uk': 'uk.html',
+                'united kingdom': 'uk.html',
+                'britain': 'uk.html',
+                'australia': 'australia.html',
+                'aus': 'australia.html',
+                'canada': 'canada.html',
+                'ca': 'canada.html'
+            };
+            
+            if (countryMap[searchTerm]) {
+                window.location.href = countryMap[searchTerm];
+            } else {
+                // Try partial match
+                let found = false;
+                for (const key in countryMap) {
+                    if (key.includes(searchTerm) || searchTerm.includes(key)) {
+                        window.location.href = countryMap[key];
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (!found) {
+                    alert('Country not found. Please try: Bangladesh, USA, UK, Australia, or Canada');
+                }
+            }
+        }
+        
+        function goToCountry() {
+            const select = document.getElementById('countrySelect');
+            const country = select.value;
+            if (country) {
+                window.location.href = country + '.html';
+            }
+        }
+        
+        // Enter key support for search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchCountry();
+            }
+        });
+        
+        // Focus on search input when page loads
+        window.addEventListener('load', function() {
+            document.getElementById('searchInput').focus();
+        });
+    </script>
+</body>
+</html>
